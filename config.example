@@ -79,7 +79,7 @@ BROWSER='xdg-open'
 
 ## Misc settings
 
-default_do='menu' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
+default_do='menu' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl, copyOTP
 auto_enter='false'
 notify='false'
 default_autotype='user :tab pass'

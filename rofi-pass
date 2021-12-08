@@ -280,6 +280,21 @@ copyPass () {
 	fi
 }
 
+copyOTP () {
+	checkIfPass
+	printf '%s' "$(generateOTP)" | doClip
+	if [[ $notify == "true" ]]; then
+		notify-send "rofi-pass" "Copied OTP\\nClearing in $clip_clear seconds"
+	fi
+
+	if [[ $notify == "true" ]]; then
+		(sleep $clip_clear; printf '%s' "" | _clip_in_primary; printf '%s' "" | _clip_in_clipboard | notify-send "rofi-pass" "Clipboard cleared") &
+	elif [[ $notify == "false" ]]; then
+		(sleep $clip_clear; printf '%s' "" | _clip_in_primary; printf '%s' "" | _clip_in_clipboard) &
+	fi
+
+}
+
 viewEntry () {
 	checkIfPass
 	showEntry "${selected_password}"
